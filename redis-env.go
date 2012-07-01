@@ -80,7 +80,8 @@ func main() {
     printVersion()
   } else {
     client := redis.New(*netaddr, *dbIndex, "")
-    key := fmt.Sprintf("redis-env:%s", name)
+    key := fmt.Sprintf("redis-env:%s", *name)
+    fmt.Println(key)
 
     if len(*runCommand) > 0 {
       run(client, key, *runCommand)
